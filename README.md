@@ -2,7 +2,7 @@
 
 A daily pop culture podcast for an audience of one, written by Claude while everyone sensible is asleep, so that its listener never again has to learn what happened in the world by dragging a thumb up a glass rectangle for forty minutes.
 
-Every morning at about 4:12am Eastern, a scheduled Claude routine reads the last 24 hours of entertainment news, checks the charts, verifies the numbers, remembers what it said yesterday, and writes one briefing to Google Drive. That briefing is the only source document for a Gemini Notebook (formerly NotebookLM) Audio Overview, so by breakfast there are two cheerful podcast hosts ready to explain the weekend box office, the week's breakout song, the Formula 1 strategy story and whether the home team won, in roughly the time it takes to make coffee.
+Every morning at about 4:12am Eastern, a scheduled Claude routine reads the last 24 hours of entertainment news, checks the charts, verifies the numbers, remembers what it said yesterday, and writes one briefing to Google Drive. That briefing is the only source document for a Gemini Notebook (formerly NotebookLM) Audio Overview, so by breakfast there are two cheerful podcast hosts ready to explain the weekend box office, the week's breakout song, the Formula 1 strategy story and whether the Bears found a new way to make it interesting, in roughly the time it takes to make coffee.
 
 ## Origin story
 
@@ -31,7 +31,7 @@ The briefing runs in a fixed order, because the audio hosts read the document to
 | Celebrity, Culture & Gaming | Confirmed celebrity news, viral moments that reached real outlets, fashion, books and games |
 | The Business of Entertainment | Deals, earnings, labor, AI in entertainment, and a short entertainment-stocks note |
 | Pit Wall: Formula 1 | Results, strategy, regulations and FIA decisions, pitched at a listener who knows what an undercut is |
-| Home-city scoreboard | Final scores, a one-line recap and the standings for the teams you follow (omitted on days nobody played) |
+| Chicago Scoreboard | Final scores, a one-line recap and the standings for the Bears, Bulls, Blackhawks, Cubs and White Sox (omitted on days nobody played) |
 | What to Watch & Listen | Three to five new recommendations, with where to find them and what the critics thought |
 | Coming Up | The next seven days of releases, premieres, award shows, live events and the next Grand Prix |
 
@@ -47,7 +47,7 @@ The routine is a single long prompt, [`prompts/daily-pop-culture-briefing.md`](p
 
 First, it loads its memory. Before any research, it reads the latest story tracker from Drive and the two most recent briefings, so continuing stories (a film's box office run, a song's weeks at number one, the awards race, the F1 title fight) are told as updates rather than reintroduced every morning like a goldfish meeting its castle.
 
-Then it researches in parallel. The lead agent launches seven subagents in a single message (eight on awards days): Film & Box Office, TV & Streaming, Music, Celebrity, Culture & Gaming, Business of Entertainment & Coming Soon, Formula 1, and the home-city sports desk. It runs a front-page sweep of the trades itself, so nothing big slips through. Each subagent gets a self-contained brief with the date window, its sources, its search caps and the storylines it is tracking, and returns ranked, dated, sourced findings ending in a self-count of its tool use.
+Then it researches in parallel. The lead agent launches seven subagents in a single message (eight on awards days): Film & Box Office, TV & Streaming, Music, Celebrity, Culture & Gaming, Business of Entertainment & Coming Soon, Formula 1, and Chicago Sports. It runs a front-page sweep of the trades itself, so nothing big slips through. Each subagent gets a self-contained brief with the date window, its sources, its search caps and the storylines it is tracking, and returns ranked, dated, sourced findings ending in a self-count of its tool use.
 
 Searching follows a strict order: the built-in WebSearch first, the anonymous Parallel web search as the backup, and Perplexity as the last resort, each with hard per-agent caps. Every news search must name the date, because an undated search for "box office" will cheerfully return a story from 2019 and present it as breaking. Data comes from connectors where possible: Viberate for music charts and artist data, Financial Modeling Prep for the stocks note (Netflix, Disney and Sony), and the chart pages themselves for the rest (The Numbers, Netflix's Tudum Top 10, FlixPatrol's dated daily pages for the other streamers, kworb, Rotten Tomatoes, Metacritic, formula1.com and the FIA's decision documents).
 
@@ -57,7 +57,7 @@ Next it consolidates and verifies. Findings are merged, deduplicated, matched to
 
 Then the quality gate. The draft is checked for word count, attribution, section order, spoilers (none for anything released in the last two weeks unless the spoiler is the news, with a warning), and the audio rules below. It is revised until it passes.
 
-Finally it saves and remembers. The briefing is saved to the "Pop Culture Briefings" folder in Drive as `YYYY-MM-DD - Pop Culture Briefing`, and a brand-new tracker goes into the "Pop Culture Story Tracker" subfolder as `YYYY-MM-DD - Pop Culture Story Tracker`. Earlier trackers are never edited or deleted, which gives the system a better memory than most people and a more honest one than the internet. The tracker has ten parts: active and dormant storylines, charts and figures, the release calendar, Formula 1 standings, the home teams, the awards calendar, everything already recommended in the last three weeks, a metaphor log and the aired items log. The run ends with one push notification naming the day's biggest story, with links to both documents, and a final report of run time, search usage and anything that broke.
+Finally it saves and remembers. The briefing is saved to the "Pop Culture Briefings" folder in Drive as `YYYY-MM-DD - Pop Culture Briefing`, and a brand-new tracker goes into the "Pop Culture Story Tracker" subfolder as `YYYY-MM-DD - Pop Culture Story Tracker`. Earlier trackers are never edited or deleted, which gives the system a better memory than most people and a more honest one than the internet. The tracker has ten parts: active and dormant storylines, charts and figures, the release calendar, Formula 1 standings, the Chicago teams, the awards calendar, everything already recommended in the last three weeks, a metaphor log and the aired items log. The run ends with one push notification naming the day's biggest story, with links to both documents, and a final report of run time, search usage and anything that broke.
 
 ## The audio rules, or why the hosts sound like friends and not a spreadsheet
 
@@ -74,7 +74,7 @@ The briefing used to end with an EPISODE_FOCUS paragraph. It has been retired in
 You will need a Claude account that can run scheduled routines, and these connectors available to the routine: Google Drive (memory and saving), Viberate (music data), Financial Modeling Prep (the stocks note), Parallel Search in both its anonymous and authenticated forms, and Perplexity (the last-resort search). The built-in WebSearch and WebFetch tools do the rest.
 
 1. Create a folder in Google Drive called "Pop Culture Briefings," and inside it a subfolder called "Pop Culture Story Tracker." Copy both folder IDs from their URLs.
-2. Open [`prompts/daily-pop-culture-briefing.md`](prompts/daily-pop-culture-briefing.md) and fill in the placeholders listed at the top: the two folder IDs, your home city, your teams, their CBS Sports schedule URLs and your local sports outlets.
+2. Open [`prompts/daily-pop-culture-briefing.md`](prompts/daily-pop-culture-briefing.md) and fill in the two folder IDs listed at the top. If you don't root for Chicago, swap in your own teams, their CBS Sports schedule URLs and your local outlets in the Chicago sports paragraphs, and accept that the routine will judge you quietly.
 3. If you are not on Eastern time, change the time zone and the timing paragraph in the prompt to match.
 4. Create a scheduled routine with everything below the line in that file as its prompt, set to run daily before you wake up. The original runs at 4:12am Eastern, a time chosen because nothing good has ever happened on the internet at 4:12am, so there is nothing to miss.
 5. When the first briefing lands in Drive, add it as the only source in a Gemini Notebook, paste the EPISODE_OVERVIEW line into the Audio Overview customize box, and generate the episode.
@@ -90,6 +90,6 @@ The first run will find no tracker, say so, and build one from scratch. From the
 
 ## A note on sanitizing
 
-The prompt here matches the one in production, with personal details swapped for placeholders: the Drive folder IDs and the home city, teams and local outlets for the scoreboard. Connector names, tool names, caps, source rules and editorial rules are unchanged, so it should run exactly as written once the placeholders are filled in.
+The prompt here matches the one in production, with the Drive folder IDs swapped for placeholders. Everything else, the Chicago teams included, is unchanged, so it should run exactly as written once the two IDs are filled in.
 
 The thumb, for the record, has made a full recovery and now mostly just presses play.
