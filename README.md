@@ -59,7 +59,7 @@ Then the quality gate. The draft is checked for word count, attribution, section
 
 Finally it saves and remembers. The briefing is saved to the "Pop Culture Briefings" folder in Drive as `YYYY-MM-DD - Pop Culture Briefing`, and a brand-new tracker goes into the "Pop Culture Story Tracker" subfolder as `YYYY-MM-DD - Pop Culture Story Tracker`. Earlier trackers are never edited or deleted, which gives the system a better memory than most people and a more honest one than the internet. The tracker has ten parts: active and dormant storylines, charts and figures, the release calendar, Formula 1 standings, the Chicago teams, the awards calendar, everything already recommended in the last three weeks, a metaphor log and the aired items log. The run ends with one push notification naming the day's biggest story, with links to both documents, and a final report of run time, search usage and anything that broke.
 
-## The Audio Rules, Or Why The Hosts Sound Like Friends And Not A Spreadsheet
+## The Audio Rules, or Why the Hosts Sound Like Friends and Not a Spreadsheet
 
 Whatever is written gets said out loud, so the prompt has a section on audio hygiene, each rule a small monument to a past episode.
 
