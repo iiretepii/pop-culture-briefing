@@ -4,7 +4,7 @@ A daily pop culture podcast for an audience of one, written by Claude while ever
 
 Every morning at about 4:12am Eastern, a scheduled Claude routine reads the last 24 hours of entertainment news, checks the charts, verifies the numbers, remembers what it said yesterday, and writes one briefing to Google Drive. That briefing is the only source document for a Gemini Notebook (formerly NotebookLM) Audio Overview, so by breakfast there are two cheerful podcast hosts ready to explain the weekend box office, the week's breakout song, the Formula 1 strategy story and whether the Bears found a new way to make it interesting, in roughly the time it takes to make coffee.
 
-## Origin story
+## Origin Story
 
 All anecdotes in this section are, at best, lightly true and, at worst, entirely made up. The prompt is real. The legends are not.
 
@@ -16,7 +16,7 @@ So the friend was replaced with a prompt. The first version was three sentences 
 
 The algorithm took the news badly. It has since been sending increasingly personal "we miss you" notifications, and at last report had worked through denial and bargaining and was somewhere around offering a free trial of something nobody asked for. We wish it well. We are not coming back.
 
-## What you get each morning
+## What You Get Each Morning
 
 The briefing runs in a fixed order, because the audio hosts read the document top to bottom and treat it as their run-of-show:
 
@@ -41,7 +41,7 @@ Formula 1 gets its own race-week logic: a full race report the day after a Grand
 
 Awards season gets the full red carpet. On Oscars, Grammys and Emmys ceremony days there is an Awards Preview, the morning after there is an extended Awards Edition of 4,500 to 6,000 words with every major winner checked against the official results page, and the morning after nominations there is an expanded Nominations section. Winners are never reported from predictions or social media, a rule written in the full knowledge of how tempting that is at 4am.
 
-## How it works
+## How It Works
 
 The routine is a single long prompt, [`prompts/daily-pop-culture-briefing.md`](prompts/daily-pop-culture-briefing.md), run unattended on a schedule. It never asks questions, which makes it the only colleague in history to never schedule a quick sync.
 
@@ -59,7 +59,7 @@ Then the quality gate. The draft is checked for word count, attribution, section
 
 Finally it saves and remembers. The briefing is saved to the "Pop Culture Briefings" folder in Drive as `YYYY-MM-DD - Pop Culture Briefing`, and a brand-new tracker goes into the "Pop Culture Story Tracker" subfolder as `YYYY-MM-DD - Pop Culture Story Tracker`. Earlier trackers are never edited or deleted, which gives the system a better memory than most people and a more honest one than the internet. The tracker has ten parts: active and dormant storylines, charts and figures, the release calendar, Formula 1 standings, the Chicago teams, the awards calendar, everything already recommended in the last three weeks, a metaphor log and the aired items log. The run ends with one push notification naming the day's biggest story, with links to both documents, and a final report of run time, search usage and anything that broke.
 
-## The audio rules, or why the hosts sound like friends and not a spreadsheet
+## The Audio Rules, Or Why The Hosts Sound Like Friends And Not A Spreadsheet
 
 Whatever is written gets said out loud, so the prompt has a section on audio hygiene, each rule a small monument to a past episode.
 
@@ -69,7 +69,7 @@ There is also a connecting thread instead of a running metaphor. An image is all
 
 The briefing used to end with an EPISODE_FOCUS paragraph. It has been retired in favor of the EPISODE_OVERVIEW and DIRECTOR_NOTES at the top, on the principle that you give the director their notes before the show, not after the credits.
 
-## Set it up yourself
+## Set It Up Yourself
 
 You will need a Claude account that can run scheduled routines, and these connectors available to the routine: Google Drive (memory and saving), Viberate (music data), Financial Modeling Prep (the stocks note), Parallel Search in both its anonymous and authenticated forms, and Perplexity (the last-resort search). The built-in WebSearch and WebFetch tools do the rest.
 
@@ -81,7 +81,7 @@ You will need a Claude account that can run scheduled routines, and these connec
 
 The first run will find no tracker, say so, and build one from scratch. From the second morning on, it remembers.
 
-## File map
+## File Map
 
 | Path | What it is |
 |---|---|
