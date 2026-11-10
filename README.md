@@ -1,6 +1,6 @@
 # Automated Daily Pop Culture Podcast
 
-A daily pop culture podcast for an audience of one, written by Claude while everyone sensible is asleep, so that its listener never again has to learn what happened in the world by dragging a thumb up a glass rectangle for forty minutes.
+A daily pop culture podcast for an audience of one, written by Claude while everyone sensible is asleep, so that its listener never again has to piece together what happened in the world from six apps, four feeds and a comment section.
 
 Every morning at about 4:12am Eastern, a scheduled Claude routine reads the last 24 hours of entertainment news, checks the charts, verifies the numbers, remembers what it said yesterday, and writes one briefing to Google Drive. That briefing is the only source document for a Gemini Notebook (formerly NotebookLM) Audio Overview, so by breakfast there are two cheerful podcast hosts ready to explain the weekend box office, the week's breakout song, the Formula 1 strategy story and whether the Bears found a new way to make it interesting, in roughly the time it takes to make coffee.
 
@@ -8,11 +8,11 @@ Every morning at about 4:12am Eastern, a scheduled Claude routine reads the last
 
 All anecdotes in this section are, at best, lightly true and, at worst, entirely made up. The prompt is real. The legends are not.
 
-It began, as these things do, with a thumb. After one too many evenings spent doomscrolling, the author's right thumb reportedly requested a trade to a team with a better rest-to-scroll ratio. Negotiations were tense. The thumb's agent cited repetitive strain and a career-low reading comprehension rate, and pointed out that its client had recently scrolled past the same celebrity sourdough story eleven times without learning which film won the weekend.
+It began with a simple question: what actually happened today? Answering it took the author about forty minutes and six apps. One news app led with a story another had apparently decided did not exist. A third covered it as a triumph, a fourth as a catastrophe, and both were very sure. In between sat the feeds, where every update arrived wrapped in someone's opinion, a discount code, or both: an influencer reviewing a trailer while plugging a supplement, a hot take on the hot take, and a video titled "you won't believe what happened" that, it turned out, you would. Somewhere underneath all of that, on a good day, was the news. Occasionally even good news, usually just below an ad for a mattress.
 
 The author's first attempt at a fix was a sticky note on the fridge that said "ask a well-informed friend." The note was effective but did not scale, because the friend eventually wanted to talk about other things, such as their own life.
 
-So the friend was replaced with a prompt. The first version was three sentences long. The current version is about fifty-eight thousand characters, which is what happens when you let a person who enjoys rules write rules for a robot. Every one of those characters exists because something, at some point, went hilariously wrong.
+So the friend was replaced with a prompt. The first version was three sentences long. The current version is about fifty-eight thousand characters, which is what happens when you let a person who enjoys rules write rules for a robot. Most of those characters exist to do what the feeds never would: say where a fact came from, call a rumor a rumor, and skip the part where someone tries to sell you something. The rest exist because something, at some point, went hilariously wrong.
 
 The algorithm took the news badly. It has since been sending increasingly personal "we miss you" notifications, and at last report had worked through denial and bargaining and was somewhere around offering a free trial of something nobody asked for. We wish it well. We are not coming back.
 
@@ -88,4 +88,4 @@ The first run will find no tracker, say so, and build one from scratch. From the
 | `README.md` | This file, which you are reading instead of doomscrolling. Well done. |
 | `prompts/daily-pop-culture-briefing.md` | The full routine prompt, sanitized, with a placeholder table at the top |
 
-The thumb, for the record, has made a full recovery and now mostly just presses play.
+The six apps, for the record, are still on the phone. They have been moved to the last screen, into a folder called Later, where they are learning patience.
