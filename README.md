@@ -1,4 +1,4 @@
-# pop-culture-briefing
+# Automated Daily Pop Culture Podcast
 
 A daily pop culture podcast for an audience of one, written by Claude while everyone sensible is asleep, so that its listener never again has to learn what happened in the world by dragging a thumb up a glass rectangle for forty minutes.
 
