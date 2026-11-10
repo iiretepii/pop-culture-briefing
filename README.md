@@ -88,8 +88,4 @@ The first run will find no tracker, say so, and build one from scratch. From the
 | `README.md` | This file, which you are reading instead of doomscrolling. Well done. |
 | `prompts/daily-pop-culture-briefing.md` | The full routine prompt, sanitized, with a placeholder table at the top |
 
-## A note on sanitizing
-
-The prompt here matches the one in production, with the Drive folder IDs swapped for placeholders. Everything else, the Chicago teams included, is unchanged, so it should run exactly as written once the two IDs are filled in.
-
 The thumb, for the record, has made a full recovery and now mostly just presses play.
